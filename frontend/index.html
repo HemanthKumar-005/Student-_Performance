@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Student Performance Predictor</title>
+    <meta name="description" content="Predict student performance using AI and linear regression based on study hours, attendance, previous grades, and learning behavior.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    
+    <div class="container">
+        <header>
+            <h1>AI Performance Predictor</h1>
+            <p>Predict outcomes and identify at-risk students using Machine Learning.</p>
+        </header>
+
+        <main>
+            <div class="app-layout">
+                <div class="inputs-section panel">
+                    <h2>Student Data</h2>
+                    <form id="prediction-form">
+                        <div class="form-group">
+                            <label for="study_hours">Study Hours (per week)</label>
+                            <input type="range" id="study_hours" min="0" max="24" value="10" step="0.5">
+                            <div class="value-display" id="study_hours_val">10.0 hrs</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="attendance">Attendance Percentage</label>
+                            <input type="range" id="attendance" min="0" max="100" value="85" step="1">
+                            <div class="value-display" id="attendance_val">85%</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="previous_grades">Previous Grades (0-100)</label>
+                            <input type="range" id="previous_grades" min="0" max="100" value="75" step="1">
+                            <div class="value-display" id="previous_grades_val">75</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="learning_behavior">Learning Behavior (1-10)</label>
+                            <input type="range" id="learning_behavior" min="1" max="10" value="7" step="0.1">
+                            <div class="value-display" id="learning_behavior_val">7.0</div>
+                        </div>
+
+                        <button type="submit" class="primary-btn" id="predict-btn">
+                            <span class="btn-text">Predict Performance</span>
+                            <div class="spinner" id="btn-spinner"></div>
+                        </button>
+                    </form>
+                </div>
+
+                <div class="results-section panel" id="results-panel">
+                    <h2>AI Prediction</h2>
+                    
+                    <div class="score-circle">
+                        <svg viewBox="0 0 36 36" class="circular-chart">
+                            <path class="circle-bg"
+                              d="M18 2.0845
+                                a 15.9155 15.9155 0 0 1 0 31.831
+                                a 15.9155 15.9155 0 0 1 0 -31.831"
+                            />
+                            <path class="circle" id="score-circle-path"
+                              stroke-dasharray="0, 100"
+                              d="M18 2.0845
+                                a 15.9155 15.9155 0 0 1 0 31.831
+                                a 15.9155 15.9155 0 0 1 0 -31.831"
+                            />
+                        </svg>
+                        <div class="score-text">
+                            <span id="score-value">--</span>
+                            <span class="score-label">/ 100</span>
+                        </div>
+                    </div>
+
+                    <div class="insights-container">
+                        <h3>AI Insights</h3>
+                        <ul id="insights-list">
+                            <li class="placeholder-text">Submit the form to generate personalized AI insights.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
