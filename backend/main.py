@@ -91,12 +91,12 @@ def predict_performance(req: PredictionRequest):
             
         if pred_clamped > 85:
             insights.append("You are on track for excellent results. Keep up the great work!")
-        elif pred_clamped < 50:
+        elif pred_clamped < 50::::
             insights.append("Warning: You are currently at risk. Consider seeking additional support or tutoring.")
 
         return {"predicted_score": round(pred_clamped, 1), "insights": insights}
 
-    except Exception as e:
+    except Exception as e:::
         raise HTTPException(status_code=400, detail=str(e))
 
 # Mount frontend directory for static file serving
